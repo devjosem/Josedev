@@ -1,518 +1,469 @@
 /* ==========================================================================
-   RESET & VARIÁVEIS GLOBAIS (Estética Terminal Corporativa)
+   Variables & Base Settings
    ========================================================================== */
 :root {
-    --bg-darker: #0d0e12;       /* Fundo da janela do terminal e boot */
-    --bg-main: #12141c;         /* Fundo principal da página */
-    --bg-card: #1a1d28;         /* Fundo de elementos de bloco e cartões */
-    --accent-green: #00ff66;    /* Cor clássica de terminal estável */
-    --accent-dim-green: #00cc52;
-    --text-primary: #e2e8f0;    /* Cinza claro de alta leitura */
-    --text-secondary: #94a3b8;  /* Texto de suporte/subtítulos */
-    --border-color: #2e3440;    /* Divisórias discretas */
-    --system-red: #ff5f56;
-    --system-yellow: #ffbd2e;
-    --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
+    --bg-main: #0a0a0c;
+    --bg-card: #121216;
+    --bg-nav: rgba(10, 10, 12, 0.85);
+    --primary: #8e21b2;
+    --primary-glow: rgba(142, 33, 178, 0.15);
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: #222227;
+    --font-stack: 'Inter', sans-serif;
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
     background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-    line-height: 1.6;
-    font-size: 15px;
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    line-height: 1.6;
 }
-
-/* Utilitários */
-.highlight { color: var(--accent-green); font-weight: 700; }
-.highlight-green { color: var(--accent-green); }
-.interactive-text { color: var(--accent-green); text-decoration: none; border-bottom: 1px dashed var(--accent-green); }
-.interactive-text:hover { color: var(--text-primary); border-bottom-style: solid; }
 
 /* ==========================================================================
-   BLOCO 1: BOOT CONTAINER (Impacto Inicial)
+   Reusable Components (Typography, Layout, Buttons)
    ========================================================================== */
-.boot-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: var(--bg-darker);
-}
-
-.terminal-window {
+.container {
     width: 100%;
-    max-width: 800px;
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-.terminal-header {
-    background-color: #1e2230;
-    padding: 12px;
-    display: flex;
-    align-items: center;
+.text-center { text-align: center; }
+.text-neon { color: var(--primary); text-shadow: 0 0 20px var(--primary-glow); }
+
+.section {
+    padding: 120px 0;
+}
+
+.bg-dark {
+    background-color: #0d0d11;
+    border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 8px;
+.section-tag {
     display: inline-block;
-}
-.red { background-color: var(--system-red); }
-.yellow { background-color: var(--system-yellow); }
-.green { background-color: var(--accent-green); }
-
-.terminal-title {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 12px;
-    color: var(--text-secondary);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
 }
 
-.terminal-body {
-    padding: 30px;
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
 }
 
-.system-log {
-    color: var(--text-secondary);
-    font-size: 13px;
-    margin-bottom: 5px;
-}
-
-.boot-headline {
-    font-size: 24px;
-    font-weight: 500;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    color: var(--text-primary);
-    line-height: 1.4;
-}
-
-.boot-sub {
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    max-width: 600px;
-}
-
-/* Botões */
+/* Buttons */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    font-family: var(--font-mono);
-    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 0.95rem;
     font-weight: 500;
+    border-radius: 6px;
     text-decoration: none;
+    transition: all var(--transition-fast);
     cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .btn-primary {
-    background-color: transparent;
-    color: var(--accent-green);
-    border: 1px solid var(--accent-green);
+    background-color: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+    box-shadow: 0 4px 20px rgba(142, 33, 178, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: rgba(0, 255, 102, 0.1);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(142, 33, 178, 0.45);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    background-color: rgba(142, 33, 178, 0.05);
+    transform: translateY(-2px);
+}
+
+.cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cta-group.center {
+    justify-content: center;
+    margin-top: 32px;
 }
 
 /* ==========================================================================
-   NAVEGAÇÃO GLOBAL FIXA
+   Navigation Bar
    ========================================================================== */
-.main-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: rgba(18, 20, 28, 0.95);
-    border-bottom: 1px solid var(--border-color);
-    padding: 15px 40px;
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    backdrop-filter: blur(5px);
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: padding var(--transition-fast);
 }
 
-.nav-logo {
+.navbar.shrink {
+    padding: 14px 40px;
+}
+
+.logo {
+    font-size: 1.35rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: white;
+    letter-spacing: -0.02em;
 }
 
-.nav-links {
+.logo span {
+    color: var(--primary);
+}
+
+.nav-menu {
     display: flex;
-    list-style: none;
-    gap: 25px;
+    gap: 32px;
 }
 
-.nav-links a {
-    color: var(--text-secondary);
+.nav-link {
+    color: var(--text-muted);
     text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s ease;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: color var(--transition-fast);
+    position: relative;
 }
 
-.nav-links a:hover {
-    color: var(--accent-green);
+.nav-link:hover, .nav-link.active {
+    color: white;
 }
 
-/* ==========================================================================
-   LAYOUT E ESTRUTURA DOS BLOCOS INFRA
-   ========================================================================== */
-.content-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width var(--transition-fast);
 }
 
-.section-block {
-    padding: 80px 0 40px 0;
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
 }
 
-.section-header {
-    margin-bottom: 30px;
-}
-
-.section-header h2 {
-    font-size: 20px;
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-.header-line {
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
     border: none;
-    height: 1px;
-    background-color: var(--border-color);
-    margin-top: 10px;
+    cursor: pointer;
 }
 
-.section-intro {
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    max-width: 700px;
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: var(--transition-fast);
 }
 
 /* ==========================================================================
-   BLOCOS 2 & 3: IDENTIDADE & HISTÓRIA (Grid Layout)
+   Hero Section
    ========================================================================== */
-.profile-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+.hero {
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    background: radial-gradient(circle at 80% 20%, rgba(142, 33, 178, 0.08) 0%, transparent 50%);
 }
 
-.profile-card {
+.hero-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: rgba(142, 33, 178, 0.1);
+    border: 1px solid rgba(142, 33, 178, 0.2);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.hero h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   Sections Layout (About, Skills, Services, Projects)
+   ========================================================================== */
+/* About */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.fact-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 4px;
+    padding: 32px;
+    border-radius: 8px;
 }
 
-.meta-label {
-    font-size: 12px;
-    color: var(--text-secondary);
-    margin-top: 15px;
-}
-.meta-label:first-child { margin-top: 0; }
-
-.meta-value {
-    font-size: 15px;
-    color: var(--text-primary);
-    margin-bottom: 5px;
+.fact-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
 
-.history-log {
-    background-color: var(--bg-darker);
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 4px;
+.fact-card p {
+    color: var(--text-muted);
 }
 
-.history-log h3 {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 15px;
-}
-
-.log-entry {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-}
-.log-entry:last-child { margin-bottom: 0; }
-
-.log-timestamp {
-    color: var(--accent-green);
-    font-size: 13px;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.log-text {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-/* ==========================================================================
-   BLOCO 4: SKILLS (Prova Técnica Direta)
-   ========================================================================== */
+/* Skills */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
 }
 
 .skill-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 4px;
-    position: relative;
+    padding: 32px;
+    border-radius: 8px;
+    transition: border-color var(--transition-fast);
+}
+
+.skill-card:hover {
+    border-color: rgba(142, 33, 178, 0.4);
 }
 
 .skill-icon {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 16px;
 }
 
 .skill-card h3 {
-    font-size: 16px;
-    color: var(--text-primary);
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
 }
 
 .skill-card p {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 15px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
-.badge {
-    display: inline-block;
-    font-size: 11px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--accent-green);
-    padding: 4px 10px;
-    border-radius: 3px;
-    border: 1px solid rgba(0, 255, 102, 0.2);
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
 }
 
-/* ==========================================================================
-   BLOCO 5: PROJETOS (Portfólio Backend focado)
-   ========================================================================== */
-.projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.service-card {
+    border-left: 3px solid var(--primary);
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 0 8px 8px 0;
+}
+
+.service-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
 }
 
 .project-card {
     background-color: var(--bg-card);
-    border-left: 4px solid var(--accent-green);
-    border-top: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 0 4px 4px 0;
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 8px;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
-.project-meta {
-    font-size: 12px;
-    color: var(--accent-green);
-    margin-bottom: 10px;
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(142, 33, 178, 0.3);
 }
 
-.project-title {
-    font-size: 18px;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-}
-
-.project-desc {
-    color: var(--text-secondary);
-    font-size: 14px;
+.project-tags {
+    display: flex;
+    gap: 8px;
     margin-bottom: 20px;
-    max-width: 850px;
+    flex-wrap: wrap;
 }
 
-.project-links {
-    font-size: 14px;
+.project-tags span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--text-muted);
 }
 
-.project-link {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.1s ease;
-}
-.project-link:hover { color: var(--accent-green); }
-.separator { color: var(--border-color); margin: 0 10px; }
-
-/* ==========================================================================
-   BLOCO 6: CONTACTO & FORMULÁRIO (Alta Conversão)
-   ========================================================================== */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 4fr 5fr;
-    gap: 40px;
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
 }
 
-.contact-info h3 {
-    font-size: 16px;
-    color: var(--text-primary);
-    margin-bottom: 15px;
+.project-card p {
+    color: var(--text-muted);
 }
 
-.contact-info p {
-    color: var(--text-secondary);
-    font-size: 14px;
-    margin-bottom: 25px;
+.contact-lead {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.channels-list {
-    list-style: none;
+/* Footer */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
-.channels-list li {
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-.channels-list strong { color: var(--text-secondary); font-weight: normal; }
 
-.status-badge {
-    margin-top: 30px;
-    display: inline-flex;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    background-color: rgba(0, 255, 102, 0.05);
-    padding: 8px 15px;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 255, 102, 0.1);
-    color: var(--text-primary);
-}
-
-.status-indicator {
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-green);
-    border-radius: 50%;
-}
-
-@keyframes blink {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
-}
-.alert-blink { animation: blink 2s infinite ease-in-out; }
-
-/* Formulário estruturado */
-.contact-form {
-    background-color: var(--bg-darker);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 4px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 12px;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 12px;
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-    font-size: 14px;
-    transition: border-color 0.2s ease, outline 0.2s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-green);
-    outline: 1px solid var(--accent-green);
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: var(--accent-green);
-    color: var(--bg-darker);
-    border: none;
-    font-weight: 700;
-}
-.btn-submit:hover {
-    background-color: var(--accent-dim-green);
-}
-
-.form-feedback {
-    margin-top: 15px;
-    font-size: 13px;
-    min-height: 20px;
-}
-.feedback-success { color: var(--accent-green); }
-.feedback-error { color: var(--system-red); }
-
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-.footer-global {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-size: 12px;
-    margin-top: 60px;
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (Mobile First aplicado de forma reversa via Media Queries)
+   Scroll Storytelling Animations (JS-controlled Classes)
    ========================================================================== */
-@media (max-width: 768px) {
-    .main-nav {
-        padding: 15px 20px;
-    }
-    .nav-links {
-        gap: 15px;
-    }
-    .nav-links a {
-        font-size: 12px;
-    }
-    .profile-grid, 
-    .contact-grid {
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints (Mobile First Design)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .about-grid, .projects-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
-    .boot-headline {
-        font-size: 20px;
-    }
-    .project-card {
+    
+    .navbar {
         padding: 20px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 73px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 73px);
+        background-color: var(--bg-main);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+        gap: 40px;
+        transform: translateX(100%);
+        transition: transform 0.4s var(--transition-smooth);
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 }

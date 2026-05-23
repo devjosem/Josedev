@@ -1,235 +1,185 @@
 <!DOCTYPE html>
-<html lang="pt-AO">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jose Dev | Backend Developer</title>
+    <meta name="description" content="Jose Dev - Desenvolvedor Backend especializado em Python, Flask, FastAPI e APIs REST em Luanda, Angola.">
+    <meta name="keywords" content="backend developer, python, flask, fastapi, api rest, angola developer, jose dev, luanda">
     
-    <!-- SEO Básico -->
-    <title>José Dev | Desenvolvedor Backend Python (Flask & FastAPI) em Luanda</title>
-    <meta name="description" content="Portfólio profissional de José Dev, Desenvolvedor Backend especializado em Python, Flask, FastAPI e construção de APIs REST robustas. Baseado em Talatona, Luanda.">
-    <meta name="keywords" content="Backend, Python, Flask, FastAPI, APIs REST, Desenvolvedor, Programador, Luanda, Talatona, Angola, Software Engineer">
-    <meta name="author" content="José Dev">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://josewave2006.github.io/"> <!-- Ajustar quando houver link real -->
-    <meta property="og:title" content="José Dev | Desenvolvedor Backend Python">
-    <meta property="og:description" content="Especialista em criar APIs REST escaláveis e de alta performance utilizando Python, Flask e FastAPI. Conheça meus projetos.">
-    <meta property="og:image" content="static/img/og-image.png">
-
-    <!-- Google Fonts (Fira Code para estética terminal legível) -->
+    <!-- Google Fonts & Reset de Box-Sizing nativo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- CSS -->
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
 
-    <!-- Bloco 1: Boot / Intro -->
-    <header id="boot" class="boot-container">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">system_init.sh</span>
+<header class="navbar">
+    <div class="logo">Jose<span>Dev</span></div>
+    <button class="menu-toggle" aria-label="Abrir Menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu">
+        <a href="#about" class="nav-link">Sobre</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#services" class="nav-link">Serviços</a>
+        <a href="#projects" class="nav-link">Projetos</a>
+        <a href="#contact" class="nav-link">Contacto</a>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content scroll-reveal">
+            <span class="hero-badge">Disponível para Projetos</span>
+            <h1>José Miguel</h1>
+            <h2>Backend <span class="text-neon">Developer</span></h2>
+            <p>Especialista na construção de ecossistemas robustos, APIs REST de alta performance com Python (FastAPI/Flask) e arquitetura de dados escalável em Luanda, Angola.</p>
+
+            <div class="cta-group">
+                <a href="https://wa.me/244900000000" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Falar no WhatsApp
+                </a>
+                <a href="mailto:jose.dev.luanda@gmail.com" class="btn btn-secondary">
+                    Enviar Email
+                </a>
             </div>
-            <div class="terminal-body">
-                <p class="system-log">[OK] Inicializando subsistemas de arquitetura...</p>
-                <p class="system-log">[OK] Carregando ambiente estável Python 3.11...</p>
-                <h1 class="boot-headline">Olá, eu sou o <span class="highlight">José Dev</span>. Desenvolvedor Backend focado em APIs de alta performance.</h1>
-                <p class="boot-sub">Transformo regras de negócio complexas em estruturas de código limpas, seguras e escaláveis.</p>
-                <div class="boot-cta-box">
-                    <a href="#identity" class="btn btn-primary" id="explore-btn">Explorar Perfil &gt;_</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="container scroll-reveal">
+            <span class="section-tag">Quem Sou</span>
+            <h2 class="section-title">Sobre mim</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Prazer, sou o José Miguel (Jose Dev). Baseado em Luanda, sou um aficionado por resolver problemas complexos através de código limpo, testado e arquiteturas eficientes.</p>
+                    <p>O meu foco principal é o desenvolvimento de sistemas server-side e pipelines de dados utilizando <strong>Python</strong>. Desenho soluções focadas em segurança, baixo tempo de resposta e facilidade de manutenção.</p>
+                </div>
+                <div class="about-fact">
+                    <div class="fact-card">
+                        <h3>Localização</h3>
+                        <p>Luanda, Angola (Disponível para remoto mundial)</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Menu de Navegação Global Fixo (Aparece após o boot ou no scroll) -->
-    <nav class="main-nav" aria-label="Navegação principal">
-        <div class="nav-logo">&gt;_ josedev.log</div>
-        <ul class="nav-links">
-            <li><a href="#identity">Identidade</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projetos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <main class="content-wrapper">
-        
-        <!-- Bloco 2 & 3: Identidade e História (Integrados semanticamente) -->
-        <section id="identity" class="section-block section-profile">
-            <div class="section-header">
-                <h2>01 // Identidade &amp; Histórico</h2>
-                <hr class="header-line">
-            </div>
-            
-            <div class="profile-grid">
-                <div class="profile-card">
-                    <p class="meta-label">ID_USUÁRIO:</p>
-                    <p class="meta-value">José Dev, 19 anos</p>
-                    
-                    <p class="meta-label">LOCALIZAÇÃO:</p>
-                    <p class="meta-value">Talatona, Luanda, Angola</p>
-                    
-                    <p class="meta-label">FUNÇÃO_ATUAL:</p>
-                    <p class="meta-value highlight-green">Backend Developer (Python Specialist)</p>
-                    
-                    <p class="meta-label">FOCO_DE_ENTREGA:</p>
-                    <p class="meta-value">APIs REST robustas, integrações seguras e modelagem de dados otimizada.</p>
-                </div>
-                
-                <div class="history-log">
-                    <h3>[LOG DE EVOLUÇÃO]</h3>
-                    <div class="log-entry">
-                        <span class="log-timestamp">[2022]</span>
-                        <p class="log-text">Início da jornada na programação de computadores, focando na lógica estruturada e algoritmos puros.</p>
-                    </div>
-                    <div class="log-entry">
-                        <span class="log-timestamp">[2024]</span>
-                        <p class="log-text">Especialização em arquitetura backend com ecossistema Python. Desenvolvimento e deploy das primeiras APIs utilizando arquitetura RESTful.</p>
-                    </div>
-                    <div class="log-entry">
-                        <span class="log-timestamp">[ATUAL]</span>
-                        <p class="log-text">Construindo microsserviços modernos com FastAPI e Flask, aplicando boas práticas de clean code, segurança de dados e otimização de queries.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bloco 4: Skills (Prova Técnica Objetiva) -->
-        <section id="skills" class="section-block">
-            <div class="section-header">
-                <h2>02 // Competências Técnicas</h2>
-                <hr class="header-line">
-            </div>
-            <p class="section-intro">Minha stack principal é desenhada para criar serviços ágeis, bem documentados e de fácil manutenção.</p>
-            
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section bg-dark">
+        <div class="container scroll-reveal">
+            <span class="section-tag">Tech Stack</span>
+            <h2 class="section-title">Habilidades Técnicas</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">🐍</div>
                     <h3>Python</h3>
-                    <p>Linguagem base para scripts automatizados, análise estrutural e backend robusto.</p>
-                    <span class="badge">Avançado</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🌶️</div>
-                    <h3>Flask</h3>
-                    <p>Criação de microaplicações modulares, flexíveis e microsserviços sob medida.</p>
-                    <span class="badge">Produção</span>
+                    <p>Avançado, POO e Scripts de Automação</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">⚡</div>
                     <h3>FastAPI</h3>
-                    <p>APIs de alta performance, assíncronas nativas e autogerenciadas com tipagem (Pydantic).</p>
-                    <span class="badge">Produção</span>
+                    <p>APIs assíncronas de alta performance</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>APIs REST</h3>
-                    <p>Modelagem de rotas semânticas, paginação, autenticação JWT e documentação padrão OpenAPI/Swagger.</p>
-                    <span class="badge">Especialista</span>
+                    <div class="skill-icon">🌶️</div>
+                    <h3>Flask</h3>
+                    <p>Microframework para microsserviços ágeis</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔗</div>
+                    <h3>APIs RESTful</h3>
+                    <p>Padrões de design, JWT, OAuth2 e Documentação</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🛢️</div>
+                    <h3>SQL & Bancos</h3>
+                    <p>PostgreSQL, MySQL e Otimização de Queries</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Frontend Básico</h3>
+                    <p>HTML5, CSS3 modernos e JavaScript vanilla</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Bloco 5: Projetos (Prova de Valor) -->
-        <section id="projects" class="section-block">
-            <div class="section-header">
-                <h2>03 // Projetos Relevantes</h2>
-                <hr class="header-line">
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section">
+        <div class="container scroll-reveal">
+            <span class="section-tag">O Que Faço</span>
+            <h2 class="section-title">Serviços Especializados</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Desenvolvimento de APIs</h3>
+                    <p>Construção de APIs REST robustas, seguras e bem documentadas (Swagger/OpenAPI) prontas para alimentar aplicações mobile ou frontend web.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Automação de Processos</h3>
+                    <p>Scripts inteligentes para raspagem de dados (Web Scraping), manipulação de ficheiros em massa e otimização de rotinas empresariais.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Integração de Sistemas</h3>
+                    <p>Conexão nativa e segura entre plataformas terceiras (Gateways de pagamento, CRMs, Webhooks e envio de SMS/Email automáticos).</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section bg-dark">
+        <div class="container scroll-reveal">
+            <span class="section-tag">Portfólio</span>
+            <h2 class="section-title">Projetos Recentes</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-tags"><span>FastAPI</span><span>JWT</span><span>PostgreSQL</span></div>
+                    <h3>API Gateway de Autenticação Enterprise</h3>
+                    <p>Sistema completo de autenticação assíncrona com controle de acessos baseado em regras (RBAC), revogação de tokens em tempo real e hash criptográfico seguro.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-tags"><span>Flask</span><span>Redis</span><span>REST</span></div>
+                    <h3>Engine de Gestão de Tarefas & Filas</h3>
+                    <p>API REST para agendamento de tarefas em background com arquitetura distribuída, tratamento de erros e notificações push via Webhooks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <div class="container text-center scroll-reveal">
+            <span class="section-tag">Vamos Conversar?</span>
+            <h2 class="section-title">Iniciar um Projeto</h2>
+            <p class="contact-lead">Tem uma ideia ou precisa de engenharia backend robusta na sua equipa? Entre em contacto agora mesmo.</p>
             
-            <div class="projects-list">
-                <!-- Projeto 1 -->
-                <article class="project-card">
-                    <div class="project-meta">
-                        <span class="project-tech">FastAPI / PostgreSQL / JWT</span>
-                    </div>
-                    <h3 class="project-title">API de Gestão de Vendas E-Commerce</h3>
-                    <p class="project-desc">API robusta com autenticação por tokens JWT, controle de stock assíncrono e relatórios automatizados de faturação. Pronta para integração com clientes web/mobile.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" rel="noopener" class="project-link link-git">Código no GitHub</a>
-                        <span class="separator">|</span>
-                        <a href="#" target="_blank" rel="noopener" class="project-link link-demo">Documentação Interativa (Live)</a>
-                    </div>
-                </article>
-
-                <!-- Projeto 2 -->
-                <article class="project-card">
-                    <div class="project-meta">
-                        <span class="project-tech">Flask / SQLite / RESTful</span>
-                    </div>
-                    <h3 class="project-title">Microsserviço de Notificações Centralizadas</h3>
-                    <p class="project-desc">Serviço leve responsável por enfileirar e despachar webhooks de pagamento e e-mails transacionais de forma assíncrona, minimizando o overhead da aplicação principal.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" rel="noopener" class="project-link link-git">Código no GitHub</a>
-                    </div>
-                </article>
+            <div class="cta-group center">
+                <a href="https://wa.me/244900000000" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    Falar via WhatsApp
+                </a>
+                <a href="mailto:jose.dev.luanda@gmail.com" class="btn btn-secondary">
+                    Enviar Email Direto
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
+</main>
 
-        <!-- Bloco 6: Contacto (Conversão Direta) -->
-        <section id="contact" class="section-block contact-section">
-            <div class="section-header">
-                <h2>04 // Iniciar Ligação Técnica</h2>
-                <hr class="header-line">
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Canais Diretos</h3>
-                    <p>Procura um desenvolvedor focado em performance, que entende de arquitetura interna e não apenas de interface? Vamos conversar.</p>
-                    
-                    <ul class="channels-list">
-                        <li>
-                            <strong>E-mail:</strong> 
-                            <a href="mailto:josewave2006@gmail.com" class="interactive-text">josewave2006@gmail.com</a>
-                        </li>
-                        <li>
-                            <strong>GitHub:</strong> 
-                            <a href="#" target="_blank" rel="noopener" class="interactive-text">github.com/jDeveloperao</a>
-                        </li>
-                    </ul>
-                    <div class="status-badge">
-                        <span class="status-indicator alert-blink"></span> Disponível para novos projetos / propostas
-                    </div>
-                </div>
+<footer>
+    <div class="container footer-content">
+        <p>&copy; 2026 Jose Dev. Todos os direitos reservados.</p>
+        <p>Luanda, Angola</p>
+    </div>
+</footer>
 
-                <div class="contact-form-container">
-                    <form id="portfolio-form" action="#" method="POST" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nome / Empresa *</label>
-                            <input type="text" id="name" name="name" required placeholder="Ex: Diretor de Engenharia">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Seu E-mail *</label>
-                            <input type="email" id="email" name="email" required placeholder="Ex: gestor@empresa.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem / Proposta de Escopo *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Descreva brevemente a sua necessidade backend..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-submit" id="submit-btn">Enviar Mensagem [Enter]</button>
-                        <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer-global">
-        <p>&copy; 2026 José Dev &bull; Construído com foco em arquitetura limpa. Luanda, Angola.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="static/js/scripts.js"></script>
+<script src="static/js/scripts.js"></script>
 </body>
 </html>
