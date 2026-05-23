@@ -1,49 +1,235 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-AO">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>José Dev | Backend Developer (Python, Flask, FastAPI)</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Portfólio de José Dev, Backend Developer especializado em Python, Flask, FastAPI e APIs REST. Desenvolvedor em Luanda, Angola." />
-  <meta name="keywords" content="backend, python, flask, fastapi, developer angola, api rest, jose dev" />
-  <meta name="author" content="José Dev" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="José Dev | Backend Developer" />
-  <meta property="og:description" content="Portfólio estilo terminal Linux de um desenvolvedor backend Python." />
-  <meta property="og:type" content="website" />
-
-  <link rel="stylesheet" href="static/css/styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-</head>
-
-<body>
-  <div class="terminal-window">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <div class="terminal-header">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="title">jose-dev@portfolio:~</span>
-    </div>
+    <!-- SEO Básico -->
+    <title>José Dev | Desenvolvedor Backend Python (Flask & FastAPI) em Luanda</title>
+    <meta name="description" content="Portfólio profissional de José Dev, Desenvolvedor Backend especializado em Python, Flask, FastAPI e construção de APIs REST robustas. Baseado em Talatona, Luanda.">
+    <meta name="keywords" content="Backend, Python, Flask, FastAPI, APIs REST, Desenvolvedor, Programador, Luanda, Talatona, Angola, Software Engineer">
+    <meta name="author" content="José Dev">
+    <meta name="robots" content="index, follow">
 
-    <div class="terminal-body" id="terminal">
-      
-  
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://josewave2006.github.io/"> <!-- Ajustar quando houver link real -->
+    <meta property="og:title" content="José Dev | Desenvolvedor Backend Python">
+    <meta property="og:description" content="Especialista em criar APIs REST escaláveis e de alta performance utilizando Python, Flask e FastAPI. Conheça meus projetos.">
+    <meta property="og:image" content="static/img/og-image.png">
 
-      <div id="output"></div>
+    <!-- Google Fonts (Fira Code para estética terminal legível) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
 
-      <div class="input-line">
-        <span class="prompt">guest@jose:~$</span>
-        <input type="text" id="commandInput" autofocus autocomplete="off" />
-      </div>
+    <!-- Bloco 1: Boot / Intro -->
+    <header id="boot" class="boot-container">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">system_init.sh</span>
+            </div>
+            <div class="terminal-body">
+                <p class="system-log">[OK] Inicializando subsistemas de arquitetura...</p>
+                <p class="system-log">[OK] Carregando ambiente estável Python 3.11...</p>
+                <h1 class="boot-headline">Olá, eu sou o <span class="highlight">José Dev</span>. Desenvolvedor Backend focado em APIs de alta performance.</h1>
+                <p class="boot-sub">Transformo regras de negócio complexas em estruturas de código limpas, seguras e escaláveis.</p>
+                <div class="boot-cta-box">
+                    <a href="#identity" class="btn btn-primary" id="explore-btn">Explorar Perfil &gt;_</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    </div>
-  </div>
+    <!-- Menu de Navegação Global Fixo (Aparece após o boot ou no scroll) -->
+    <nav class="main-nav" aria-label="Navegação principal">
+        <div class="nav-logo">&gt;_ josedev.log</div>
+        <ul class="nav-links">
+            <li><a href="#identity">Identidade</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
 
-  <script src="static/js/scripts.js"></script>
+    <main class="content-wrapper">
+        
+        <!-- Bloco 2 & 3: Identidade e História (Integrados semanticamente) -->
+        <section id="identity" class="section-block section-profile">
+            <div class="section-header">
+                <h2>01 // Identidade &amp; Histórico</h2>
+                <hr class="header-line">
+            </div>
+            
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <p class="meta-label">ID_USUÁRIO:</p>
+                    <p class="meta-value">José Dev, 19 anos</p>
+                    
+                    <p class="meta-label">LOCALIZAÇÃO:</p>
+                    <p class="meta-value">Talatona, Luanda, Angola</p>
+                    
+                    <p class="meta-label">FUNÇÃO_ATUAL:</p>
+                    <p class="meta-value highlight-green">Backend Developer (Python Specialist)</p>
+                    
+                    <p class="meta-label">FOCO_DE_ENTREGA:</p>
+                    <p class="meta-value">APIs REST robustas, integrações seguras e modelagem de dados otimizada.</p>
+                </div>
+                
+                <div class="history-log">
+                    <h3>[LOG DE EVOLUÇÃO]</h3>
+                    <div class="log-entry">
+                        <span class="log-timestamp">[2022]</span>
+                        <p class="log-text">Início da jornada na programação de computadores, focando na lógica estruturada e algoritmos puros.</p>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-timestamp">[2024]</span>
+                        <p class="log-text">Especialização em arquitetura backend com ecossistema Python. Desenvolvimento e deploy das primeiras APIs utilizando arquitetura RESTful.</p>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-timestamp">[ATUAL]</span>
+                        <p class="log-text">Construindo microsserviços modernos com FastAPI e Flask, aplicando boas práticas de clean code, segurança de dados e otimização de queries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloco 4: Skills (Prova Técnica Objetiva) -->
+        <section id="skills" class="section-block">
+            <div class="section-header">
+                <h2>02 // Competências Técnicas</h2>
+                <hr class="header-line">
+            </div>
+            <p class="section-intro">Minha stack principal é desenhada para criar serviços ágeis, bem documentados e de fácil manutenção.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Linguagem base para scripts automatizados, análise estrutural e backend robusto.</p>
+                    <span class="badge">Avançado</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌶️</div>
+                    <h3>Flask</h3>
+                    <p>Criação de microaplicações modulares, flexíveis e microsserviços sob medida.</p>
+                    <span class="badge">Produção</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>FastAPI</h3>
+                    <p>APIs de alta performance, assíncronas nativas e autogerenciadas com tipagem (Pydantic).</p>
+                    <span class="badge">Produção</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>APIs REST</h3>
+                    <p>Modelagem de rotas semânticas, paginação, autenticação JWT e documentação padrão OpenAPI/Swagger.</p>
+                    <span class="badge">Especialista</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloco 5: Projetos (Prova de Valor) -->
+        <section id="projects" class="section-block">
+            <div class="section-header">
+                <h2>03 // Projetos Relevantes</h2>
+                <hr class="header-line">
+            </div>
+            
+            <div class="projects-list">
+                <!-- Projeto 1 -->
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span class="project-tech">FastAPI / PostgreSQL / JWT</span>
+                    </div>
+                    <h3 class="project-title">API de Gestão de Vendas E-Commerce</h3>
+                    <p class="project-desc">API robusta com autenticação por tokens JWT, controle de stock assíncrono e relatórios automatizados de faturação. Pronta para integração com clientes web/mobile.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener" class="project-link link-git">Código no GitHub</a>
+                        <span class="separator">|</span>
+                        <a href="#" target="_blank" rel="noopener" class="project-link link-demo">Documentação Interativa (Live)</a>
+                    </div>
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span class="project-tech">Flask / SQLite / RESTful</span>
+                    </div>
+                    <h3 class="project-title">Microsserviço de Notificações Centralizadas</h3>
+                    <p class="project-desc">Serviço leve responsável por enfileirar e despachar webhooks de pagamento e e-mails transacionais de forma assíncrona, minimizando o overhead da aplicação principal.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener" class="project-link link-git">Código no GitHub</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Bloco 6: Contacto (Conversão Direta) -->
+        <section id="contact" class="section-block contact-section">
+            <div class="section-header">
+                <h2>04 // Iniciar Ligação Técnica</h2>
+                <hr class="header-line">
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Canais Diretos</h3>
+                    <p>Procura um desenvolvedor focado em performance, que entende de arquitetura interna e não apenas de interface? Vamos conversar.</p>
+                    
+                    <ul class="channels-list">
+                        <li>
+                            <strong>E-mail:</strong> 
+                            <a href="mailto:josewave2006@gmail.com" class="interactive-text">josewave2006@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>GitHub:</strong> 
+                            <a href="#" target="_blank" rel="noopener" class="interactive-text">github.com/jDeveloperao</a>
+                        </li>
+                    </ul>
+                    <div class="status-badge">
+                        <span class="status-indicator alert-blink"></span> Disponível para novos projetos / propostas
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="portfolio-form" action="#" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome / Empresa *</label>
+                            <input type="text" id="name" name="name" required placeholder="Ex: Diretor de Engenharia">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Seu E-mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="Ex: gestor@empresa.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem / Proposta de Escopo *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Descreva brevemente a sua necessidade backend..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit" id="submit-btn">Enviar Mensagem [Enter]</button>
+                        <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-global">
+        <p>&copy; 2026 José Dev &bull; Construído com foco em arquitetura limpa. Luanda, Angola.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="static/js/scripts.js"></script>
 </body>
 </html>

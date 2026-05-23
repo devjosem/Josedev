@@ -1,87 +1,69 @@
-const input = document.getElementById("commandInput");
-const output = document.getElementById("output");
-const avatarInput = document.getElementById("avatarInput");
-const avatarPreview = document.getElementById("avatarPreview");
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Instâncias de elementos de controle
+    const form = document.getElementById("portfolio-form");
+    const feedbackContainer = document.getElementById("form-feedback");
+    const submitBtn = document.getElementById("submit-btn");
+    
+    /* ==========================================================================
+       1. FEEDBACK SIMPLES DE FORMULÁRIO (Validação sem fricção)
+       ========================================================================== */
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // Evita reload real da página
+            
+            // Alterar estado do botão para evitar cliques duplicados
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processando dados...";
+            
+            // Coleta básica para fins de validação estrutural
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-let history = [];
+            if (!name || !email || !message) {
+                renderFeedback("Erro: Todos os campos obrigatórios precisam de preenchimento.", "error");
+                resetSubmitButton();
+                return;
+            }
 
-function print(text) {
-  const line = document.createElement("div");
-  line.textContent = text;
-  output.appendChild(line);
-  output.scrollTop = output.scrollHeight;
-}
-
-function typingEffect(text, callback) {
-  let i = 0;
-  const line = document.createElement("div");
-  output.appendChild(line);
-
-  const interval = setInterval(() => {
-    line.textContent += text[i];
-    i++;
-    if (i >= text.length) {
-      clearInterval(interval);
-      if (callback) callback();
+            // Simulação de sucesso nativo síncrono controlado (UX rápida)
+            setTimeout(() => {
+                renderFeedback("✓ Ligação bem-sucedida. José responderá em menos de 24 horas.", "success");
+                form.reset();
+                resetSubmitButton();
+            }, 800);
+        });
     }
-  }, 15);
-}
 
-function handleCommand(cmd) {
-  print(`guest@jose:~$ ${cmd}`);
-  history.push(cmd);
+    function renderFeedback(msg, status) {
+        feedbackContainer.textContent = msg;
+        feedbackContainer.className = "form-feedback"; // Reset class
+        if (status === "success") {
+            feedbackContainer.classList.add("feedback-success");
+        } else {
+            feedbackContainer.classList.add("feedback-error");
+        }
+    }
 
-  switch (cmd.toLowerCase()) {
+    function resetSubmitButton() {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Enviar Mensagem [Enter]";
+    }
 
-    case "whoami":
-      typingEffect(
-`José Dev
-Backend Developer
-Python | Flask | FastAPI
-19 anos
-Luanda, Talatona, Angola`
-      );
-      break;
-
-    case "skills":
-      typingEffect("Python, Flask, FastAPI, REST APIs, SQL, Git, Linux CLI");
-      break;
-
-    case "projects":
-      typingEffect("Projetos:\n- API REST Sistema X (placeholder)\n- Automação de arquivos\n- Portfólio terminal UI");
-      break;
-
-    case "contact":
-      typingEffect(
-`email: josewave2006@gmail.com
-github: https://github.com/SEU_GITHUB
-location: Luanda, Talatona, Angola`
-      );
-      break;
-
-    case "clear":
-      output.innerHTML = "";
-      break;
-
-    default:
-      typingEffect("Comando não encontrado. Use: whoami | skills | projects | contact | clear");
-  }
-}
-
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    handleCommand(input.value);
-    input.value = "";
-  }
-});
-
-avatarInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      avatarPreview.src = reader.result;
-    };
-    reader.readAsDataURL(file);
-  }
+    /* ==========================================================================
+       2. ANIMAÇÃO DE ENTRADA LEVE (Interação Suave)
+       ========================================================================== */
+    // Simula uma pequena variação de opacidade nos logs do boot para dar o tom técnico
+    const logs = document.querySelectorAll(".system-log");
+    logs.forEach((log, index) => {
+        log.style.opacity = "0";
+        log.style.transform = "translateX(-5px)";
+        log.style.transition = "all 0.3s ease-out";
+        
+        setTimeout(() => {
+            log.style.opacity = "1";
+            log.style.transform = "translateX(0)";
+        }, (index + 1) * 200);
+    });
 });
